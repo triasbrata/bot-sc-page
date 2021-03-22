@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Trias <triasbrata@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build":"tsc -p tsconfig.json",
+    "start":"node dist/server.js"
+  },
   "dependencies": {
     "@koa/router": "^10.0.0",
     "@types/koa-bodyparser": "^4.3.0",
