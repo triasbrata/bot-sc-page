@@ -1,0 +1,20 @@
+{
+  "name": "bot-sc-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Trias <triasbrata@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa__router": "^8.0.4",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "playwright": "^1.9.2",
+    "tracer": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.1",
+    "typescript": "^4.2.3"
+  }
+}
