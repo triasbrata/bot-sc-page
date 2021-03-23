@@ -3,7 +3,7 @@ import { Logger } from "./logger";
 let __browser:ChromiumBrowser|null = null;
 export async function createBrowser(){
   if(!__browser){
-    __browser = await chromium.launch({headless:false});
+    __browser = await chromium.launch({headless:process.env.NODE_ENV !== "dev"});
     Logger.debug("Browser connected");
     __browser.on('disconnected', () => {
       __browser = null;

@@ -10,12 +10,14 @@ export function mappingRouting(router: Router<any, {}>) {
       Logger.debug(`new job ${url}`)
       if(url){
         const page = await browser.newPage();
+        page.setViewportSize({width:1280, height:720})
         Logger.debug(`create new page`);
         await page.goto(url);
         await new Promise(res => setTimeout(res, 5*1000));
         Logger.debug(`loaded ${url}`)
-        const image = await page.screenshot({type:"jpeg",fullPage:true});
+        const image = await page.screenshot({type:"jpeg",fullPage:true, quality:100});
         Logger.debug(`screnshoot page ${url} is done`)
+        await page.close();
         ctx.response.type ="image/jpeg";
         ctx.response.body = image;
       }
