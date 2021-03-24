@@ -8,7 +8,7 @@ import { createBrowser } from "./browser";
 const app = new Koa();
 const router = new Router();
 const PORT: number = Number(process.env.PORT) || 8000;
-const HOST:string = process.env.HOST || "localhost";
+const HOST:string = process.env.HOST || "0.0.0.0";
 mappingRouting(router)
 app.use(bodyParser({}))
     .use(router.routes())
