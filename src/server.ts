@@ -1,3 +1,4 @@
+require('dotenv').config();
 import bodyParser from "koa-bodyparser";
 import Koa from "koa";
 import Router from "@koa/router";

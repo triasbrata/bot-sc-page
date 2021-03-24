@@ -7,6 +7,7 @@ export function mappingRouting(router: Router<any, {}>) {
     const browser = getBrowser();
     if (browser){
       const url = ctx.request.body?.url;
+      const clip = ctx.request.body?.clip;
       Logger.debug(`new job ${url}`)
       if(url){
         const page = await browser.newPage();
@@ -15,7 +16,7 @@ export function mappingRouting(router: Router<any, {}>) {
         await page.goto(url);
         await new Promise(res => setTimeout(res, 5*1000));
         Logger.debug(`loaded ${url}`)
-        const image = await page.screenshot({type:"jpeg",fullPage:true, quality:100});
+        const image = await page.screenshot({type:"jpeg",fullPage:true, quality:100, clip});
         Logger.debug(`screnshoot page ${url} is done`)
         await page.close();
         ctx.response.type ="image/jpeg";
