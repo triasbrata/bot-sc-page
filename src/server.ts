@@ -7,13 +7,14 @@ import { Logger } from "./logger";
 import { createBrowser } from "./browser";
 const app = new Koa();
 const router = new Router();
-const PORT = process.env.PORT || 8000;
+const PORT: number = Number(process.env.PORT) || 8000;
+const HOST:string = process.env.HOST || "localhost";
 mappingRouting(router)
 app.use(bodyParser({}))
     .use(router.routes())
     .use(router.allowedMethods());
 createBrowser().then(() => {
-  app.listen(PORT, () => {
+  app.listen(PORT, HOST, () => {
     Logger.debug(`Listeing on http://localhost:${PORT}`)
   });
 }).catch(Logger.error)
